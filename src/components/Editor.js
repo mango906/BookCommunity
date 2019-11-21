@@ -38,7 +38,7 @@ const Editor = () => {
          <div style={{ flex: 1 }}>
             <ReactQuill
                style={{
-                  backgroundColor: "gray",
+                  backgroundColor: "#222",
                   color: "white",
                   height: "968px"
                }}
