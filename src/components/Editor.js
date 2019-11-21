@@ -9,8 +9,8 @@ const Editor = () => {
 
    const modules = {
       toolbar: [
-         [{ header: [1, 2, "large"] }],
-         ["bold", "italic", "underline", "strike", "blockquote"],
+         [{ header: [1, 2, 3] }],
+         ["bold", "italic", "underline", "strike"],
          ["link", "image"],
          ["clean"]
       ]
@@ -40,9 +40,7 @@ const Editor = () => {
                style={{
                   backgroundColor: "gray",
                   color: "white",
-                  height: "968px",
-                  padding: 12,
-                  fontSize: "20px"
+                  height: "968px"
                }}
                modules={modules}
                formats={formats}
