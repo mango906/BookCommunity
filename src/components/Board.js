@@ -11,7 +11,7 @@ const Board = ({ article }) => {
       <div
          ref={section}
          dangerouslySetInnerHTML={{ __html: article }}
-         style={{ pading: 12 }}
+         style={{ padding: 12 }}
       />
    );
 };

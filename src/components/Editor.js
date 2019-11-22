@@ -40,7 +40,8 @@ const Editor = () => {
                style={{
                   backgroundColor: "#222",
                   color: "white",
-                  height: "968px"
+                  height: "968px",
+                  padding: 12
                }}
                modules={modules}
                formats={formats}
