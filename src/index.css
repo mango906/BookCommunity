@@ -34,3 +34,7 @@ p {
    color: #cccccc;
    font-style: normal;
 }
+
+::-webkit-scrollbar {
+   display: none;
+}
