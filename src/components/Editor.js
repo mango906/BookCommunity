@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import useInput from "../hooks/useInput";
 
 import Board from "./Board";
 import "react-quill/dist/quill.bubble.css";
 import ReactQuill from "react-quill";
 
-const Editor = () => {
-   const [value, setValue] = useState("");
+const Editor = ({ title }) => {
+   const [article, setArticle] = useInput("");
 
    const modules = {
       toolbar: [
@@ -47,11 +48,11 @@ const Editor = () => {
                formats={formats}
                theme="bubble"
                placeholder="내용을 입력해주세요"
-               onChange={e => setValue(e)}
+               onChange={e => setArticle(e)}
             />
          </div>
          <div style={{ flex: 1, padding: 12 }}>
-            <Board article={value}></Board>
+            <Board title={title} article={article}></Board>
          </div>
       </div>
    );

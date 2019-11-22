@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-const Board = ({ article }) => {
+const Board = ({ article, title }) => {
    const section = useRef();
 
    useEffect(() => {
@@ -8,11 +8,10 @@ const Board = ({ article }) => {
    }, [article]);
 
    return (
-      <div
-         ref={section}
-         dangerouslySetInnerHTML={{ __html: article }}
-         style={{ padding: 12 }}
-      />
+      <div style={{ padding: 12 }}>
+         <h1>{title}</h1>
+         <div ref={section} dangerouslySetInnerHTML={{ __html: article }} />
+      </div>
    );
 };
 
