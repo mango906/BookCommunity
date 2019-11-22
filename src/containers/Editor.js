@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Footer from "../components/Footer";
-import "react-quill/dist/quill.bubble.css";
 import ReactQuill from "react-quill";
 import { inject, observer } from "mobx-react";
 
@@ -78,7 +77,7 @@ class Editor extends Component {
       const style = {
          input: {
             color: "white",
-            // padding: 12,
+            padding: 12,
             flex: 9.5,
             overflowY: "scroll"
          }
@@ -101,7 +100,6 @@ class Editor extends Component {
                }}
             >
                <ReactQuill
-                  ref={ref => (this.input = ref)}
                   style={style.input}
                   modules={modules}
                   formats={formats}

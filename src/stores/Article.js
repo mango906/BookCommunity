@@ -2,13 +2,18 @@ import { observable, action, computed } from "mobx";
 
 class ArticleStore {
    @observable
+   title = "";
+
+   @observable
    articles = [];
 
    @observable
-   text = "";
-
-   @observable
    page = 1;
+
+   @action
+   setTitle(text) {
+      this.title = text;
+   }
 
    @action
    setArticle(data) {

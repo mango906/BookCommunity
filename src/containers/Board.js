@@ -22,7 +22,7 @@ class Board extends Component {
       `;
 
       const Inner = styled("div")`
-         padding: 12px;
+         padding: 24px 27px;
          overflow-y: scroll;
          height: calc(100vh - 4rem);
       `;
@@ -30,7 +30,6 @@ class Board extends Component {
       return (
          <Wrapper>
             <Inner>
-               <h1>{}</h1>
                <div
                   ref={ref => (this.section = ref)}
                   dangerouslySetInnerHTML={{
