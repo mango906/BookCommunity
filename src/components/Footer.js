@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const ArticleFooter = styled("div")`
    display: flex;
@@ -10,13 +11,30 @@ const ArticleFooter = styled("div")`
    margin-bottom: 30px;
 `;
 
-const FooterBtn = styled("button")``;
+const FooterBtn = styled("button")`
+   background-color: #222;
+   color: white;
+   border: none;
+   outline: none;
+   cursor: pointer;
+   font-size: 1rem;
+   transition: 0.3s;
+
+   &:hover {
+      color: #bdbdbd;
+   }
+`;
 
 const Footer = () => {
    return (
       <ArticleFooter>
-         <FooterBtn>이전 페이지</FooterBtn>
-         <FooterBtn>다음 페이지</FooterBtn>
+         <FooterBtn>
+            <FaChevronLeft />
+            이전 페이지
+         </FooterBtn>
+         <FooterBtn>
+            다음 페이지 <FaChevronRight />
+         </FooterBtn>
       </ArticleFooter>
    );
 };

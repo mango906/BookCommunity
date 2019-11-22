@@ -67,7 +67,14 @@ const Editor = ({ title }) => {
                <Footer />
             </div>
          </div>
-         <div style={{ flex: 1, padding: 12 }}>
+         <div
+            style={{
+               flex: 1,
+               padding: 12,
+               overflowY: "scroll",
+               height: "calc(100vh - 4rem)"
+            }}
+         >
             <Board title={title} article={article}></Board>
          </div>
       </div>
