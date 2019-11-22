@@ -1,17 +1,21 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
+import styled from "styled-components";
 
-const Board = ({ article, title }) => {
+const Wrapper = styled("div")`
+   flex: 1;
+   padding: 12;
+   overflow-y: scroll;
+   height: calc(100vh - 4rem);
+`;
+
+const Board = ({ article }) => {
    const section = useRef();
 
-   useEffect(() => {
-      if (section.current.clientHeight > 968) alert(1);
-   }, [article]);
-
    return (
-      <div style={{ padding: 12, overflowY: "scroll" }}>
-         <h1>{title}</h1>
+      <Wrapper>
+         <h1>{}</h1>
          <div ref={section} dangerouslySetInnerHTML={{ __html: article }} />
-      </div>
+      </Wrapper>
    );
 };
 

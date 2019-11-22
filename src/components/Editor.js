@@ -1,8 +1,8 @@
 import React from "react";
-import Board from "./Board";
-import Footer from "./Footer";
+import styled from "styled-components";
 import "react-quill/dist/quill.bubble.css";
 import ReactQuill from "react-quill";
+import Footer from "../components/Footer";
 
 const Editor = ({ title, handleArticle, article }) => {
    const modules = {
@@ -38,43 +38,31 @@ const Editor = ({ title, handleArticle, article }) => {
       }
    };
 
+   const Wrapper = styled("div")`
+      flex: 1;
+   `;
+
    return (
-      <div
-         style={{
-            display: "flex"
-         }}
-      >
-         <div style={{ flex: 1 }}>
-            <div
-               style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  height: "calc(100vh - 4rem)",
-                  backgroundColor: "#222"
-               }}
-            >
-               <ReactQuill
-                  style={style.input}
-                  modules={modules}
-                  formats={formats}
-                  theme="bubble"
-                  placeholder="내용을 입력해주세요"
-                  onChange={e => handleArticle(e)}
-               />
-               <Footer />
-            </div>
-         </div>
+      <Wrapper>
          <div
             style={{
-               flex: 1,
-               padding: 12,
-               overflowY: "scroll",
-               height: "calc(100vh - 4rem)"
+               display: "flex",
+               flexDirection: "column",
+               height: "calc(100vh - 4rem)",
+               backgroundColor: "#222"
             }}
          >
-            <Board title={title} article={article}></Board>
+            <ReactQuill
+               style={style.input}
+               modules={modules}
+               formats={formats}
+               theme="bubble"
+               placeholder="내용을 입력해주세요"
+               onChange={handleArticle}
+            />
+            <Footer />
          </div>
-      </div>
+      </Wrapper>
    );
 };
 

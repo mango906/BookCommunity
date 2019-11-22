@@ -5,6 +5,9 @@ class ArticleStore {
    articles = [];
 
    @observable
+   text = "";
+
+   @observable
    page = 1;
 
    @action
@@ -17,11 +20,12 @@ class ArticleStore {
             el.page === data.page ? { ...el, text: data.text } : el
          );
       }
+
+      this.text = this.articles.find(el => el.page === data.page).text;
    }
 
    @computed get getArticle() {
-      const data = this.articles.find(el => el.page === this.page);
-      return data && data.text;
+      return this.text;
    }
 
    @computed get getPage() {

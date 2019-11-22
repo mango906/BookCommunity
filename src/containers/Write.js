@@ -1,40 +1,42 @@
 import React, { Component } from "react";
-import Editor from "../components/Editor";
+import Editor from "./Editor";
 import Header from "../components/Header";
+import Board from "./Board";
+import styled from "styled-components";
+
 import { inject, observer } from "mobx-react";
 
 @inject("article")
 @observer
 class Write extends Component {
    state = {
-      title: ""
+      title: "",
+      article: ""
    };
 
    handleArticle = text => {
-      const { article } = this.props;
-      const data = {
-         page: article.getPage,
-         text
-      };
-      article.setArticle(data);
+      this.setState({
+         article: text
+      });
+      console.log(text);
    };
 
    handleChange = title => {
-      this.setState({
-         title
-      });
+      console.log(title);
    };
 
    render() {
-      const { article } = this.props;
+      const WriteArea = styled("div")`
+         display: flex;
+      `;
+
       return (
          <div>
             <Header handleChange={this.handleChange} />
-            <Editor
-               handleArticle={this.handleArticle}
-               article={article.getArticle}
-               title={this.state.title}
-            ></Editor>
+            <WriteArea>
+               <Editor />
+               <Board />
+            </WriteArea>
          </div>
       );
    }
