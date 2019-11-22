@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import useInput from "../hooks/useInput";
-
 import Board from "./Board";
+import Footer from "./Footer";
 import "react-quill/dist/quill.bubble.css";
 import ReactQuill from "react-quill";
 
@@ -12,6 +12,7 @@ const Editor = ({ title }) => {
       toolbar: [
          [{ header: [1, 2, 3] }],
          ["bold", "italic", "underline", "strike"],
+         [{ list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
          ["link", "image"],
          ["clean"]
       ]
@@ -24,11 +25,21 @@ const Editor = ({ title }) => {
       "underline",
       "strike",
       "blockquote",
+      "code",
       "list",
       "bullet",
       "indent",
       "link"
    ];
+
+   const style = {
+      input: {
+         color: "white",
+         padding: 12,
+         flex: 9.5,
+         overflowY: "scroll"
+      }
+   };
 
    return (
       <div
@@ -37,19 +48,24 @@ const Editor = ({ title }) => {
          }}
       >
          <div style={{ flex: 1 }}>
-            <ReactQuill
+            <div
                style={{
-                  backgroundColor: "#222",
-                  color: "white",
-                  height: "968px",
-                  padding: 12
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "calc(100vh - 4rem)",
+                  backgroundColor: "#222"
                }}
-               modules={modules}
-               formats={formats}
-               theme="bubble"
-               placeholder="내용을 입력해주세요"
-               onChange={e => setArticle(e)}
-            />
+            >
+               <ReactQuill
+                  style={style.input}
+                  modules={modules}
+                  formats={formats}
+                  theme="bubble"
+                  placeholder="내용을 입력해주세요"
+                  onChange={e => setArticle(e)}
+               />
+               <Footer />
+            </div>
          </div>
          <div style={{ flex: 1, padding: 12 }}>
             <Board title={title} article={article}></Board>
