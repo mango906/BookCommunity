@@ -8,6 +8,28 @@ import { inject, observer } from "mobx-react";
 @inject("article")
 @observer
 class Editor extends Component {
+   state = {
+      page: 1,
+      defaultValue: ""
+   };
+
+   componentDidUpdate(prevProps, prevState) {
+      const { article } = this.props;
+
+      if (this.state.page !== article.getPage) {
+         this.setState(
+            {
+               page: article.getPage
+            },
+            () => {
+               this.setState({
+                  defaultValue: article.getArticle
+               });
+            }
+         );
+      }
+   }
+
    handleChange = text => {
       const { article } = this.props;
       const data = {
@@ -16,6 +38,16 @@ class Editor extends Component {
       };
 
       article.setArticle(data);
+   };
+
+   handlePrev = () => {
+      const { article } = this.props;
+      article.setPrev();
+   };
+
+   handleNext = () => {
+      const { article } = this.props;
+      article.setNext();
    };
 
    render() {
@@ -46,7 +78,7 @@ class Editor extends Component {
       const style = {
          input: {
             color: "white",
-            padding: 12,
+            // padding: 12,
             flex: 9.5,
             overflowY: "scroll"
          }
@@ -55,6 +87,8 @@ class Editor extends Component {
       const Wrapper = styled("div")`
          flex: 1;
       `;
+
+      const { article } = this.props;
 
       return (
          <Wrapper>
@@ -67,14 +101,20 @@ class Editor extends Component {
                }}
             >
                <ReactQuill
+                  ref={ref => (this.input = ref)}
                   style={style.input}
                   modules={modules}
                   formats={formats}
                   theme="bubble"
+                  defaultValue={this.state.defaultValue}
                   placeholder="내용을 입력해주세요"
                   onChange={this.handleChange}
                />
-               <Footer />
+               <Footer
+                  handlePrev={this.handlePrev}
+                  handleNext={this.handleNext}
+                  page={article.getPage}
+               />
             </div>
          </Wrapper>
       );

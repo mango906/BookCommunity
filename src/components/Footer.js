@@ -25,14 +25,19 @@ const FooterBtn = styled("button")`
    }
 `;
 
-const Footer = () => {
+const PageText = styled("p")`
+   color: white;
+`;
+
+const Footer = ({ handlePrev, handleNext, page }) => {
    return (
       <ArticleFooter>
-         <FooterBtn>
+         <FooterBtn onClick={handlePrev}>
             <FaChevronLeft />
             이전 페이지
          </FooterBtn>
-         <FooterBtn>
+         <PageText>{page}</PageText>
+         <FooterBtn onClick={handleNext}>
             다음 페이지 <FaChevronRight />
          </FooterBtn>
       </ArticleFooter>

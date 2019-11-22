@@ -20,12 +20,28 @@ class ArticleStore {
             el.page === data.page ? { ...el, text: data.text } : el
          );
       }
+   }
 
-      this.text = this.articles.find(el => el.page === data.page).text;
+   @action
+   setPage(page) {
+      this.page = page;
+   }
+
+   @action
+   setPrev() {
+      if (this.page === 1) return;
+      this.page = this.page - 1;
+   }
+
+   @action
+   setNext() {
+      this.page = this.page + 1;
    }
 
    @computed get getArticle() {
-      return this.text;
+      const data = this.articles.find(el => el.page === this.page);
+      if (data) return data.text;
+      else return "";
    }
 
    @computed get getPage() {

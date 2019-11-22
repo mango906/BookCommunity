@@ -18,12 +18,9 @@ class Write extends Component {
       this.setState({
          article: text
       });
-      console.log(text);
    };
 
-   handleChange = title => {
-      console.log(title);
-   };
+   handleChange = title => {};
 
    render() {
       const WriteArea = styled("div")`
