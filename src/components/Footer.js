@@ -12,8 +12,8 @@ const ArticleFooter = styled("div")`
 `;
 
 const FooterBtn = styled("button")`
-   background-color: #222;
-   color: white;
+   background-color: rgba(255, 255, 255, 0);
+   color: black;
    border: none;
    outline: none;
    cursor: pointer;

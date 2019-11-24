@@ -22,7 +22,7 @@ class Editor extends Component {
             },
             () => {
                this.setState({
-                  defaultValue: article.getArticle
+                  defaultValue: article.getArticles
                });
             }
          );

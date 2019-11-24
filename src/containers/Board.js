@@ -33,7 +33,7 @@ class Board extends Component {
                <div
                   ref={ref => (this.section = ref)}
                   dangerouslySetInnerHTML={{
-                     __html: article.getArticle && article.getArticle
+                     __html: article.getArticles && article.getArticles
                   }}
                />
             </Inner>

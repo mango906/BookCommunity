@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { withRouter } from "react-router-dom";
 
 const Wrapper = styled("div")`
    width: 250px;
@@ -29,9 +30,13 @@ const Date = styled("p")`
    color: #cccccc;
 `;
 
-const Card = () => {
+const Card = props => {
+   const handleRedirect = () => {
+      props.history.push("/detail");
+   };
+
    return (
-      <Wrapper>
+      <Wrapper onClick={handleRedirect}>
          <Thumbnail
             src="https://i.ytimg.com/vi/y4ViOEXp8LE/maxresdefault.jpg"
             alt="img"
@@ -44,4 +49,4 @@ const Card = () => {
    );
 };
 
-export default Card;
+export default withRouter(Card);

@@ -28,6 +28,12 @@ class ArticleStore {
    }
 
    @action
+   getArticle(page) {
+      const finding = this.articles.find(el => el.page === page);
+      return finding ? finding.text : "데이터가 업소용";
+   }
+
+   @action
    setPage(page) {
       this.page = page;
    }
@@ -43,7 +49,7 @@ class ArticleStore {
       this.page = this.page + 1;
    }
 
-   @computed get getArticle() {
+   @computed get getArticles() {
       const data = this.articles.find(el => el.page === this.page);
       if (data) return data.text;
       else return "";
