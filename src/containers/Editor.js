@@ -74,17 +74,15 @@ class Editor extends Component {
          "link"
       ];
 
-      const style = {
-         input: {
-            color: "white",
-            padding: 12,
-            flex: 9.5,
-            overflowY: "scroll"
-         }
-      };
-
       const Wrapper = styled("div")`
          flex: 1;
+      `;
+
+      const Input = styled(ReactQuill)`
+         color: white;
+         padding: 12px;
+         flex: 9.5;
+         overflowy: scroll;
       `;
 
       const { article } = this.props;
@@ -99,8 +97,7 @@ class Editor extends Component {
                   backgroundColor: "#222"
                }}
             >
-               <ReactQuill
-                  style={style.input}
+               <Input
                   modules={modules}
                   formats={formats}
                   theme="bubble"
