@@ -2,13 +2,23 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled("div")`
-   width: 300px;
+   width: 250px;
    background-color: #fff;
    box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+   cursor: pointer;
 `;
 
 const Content = styled("div")`
    padding: 20px 20px;
+`;
+
+const Thumbnail = styled("img")`
+   transition: 0.3s;
+   width: 100%;
+
+   &:hover {
+      opacity: 0.8;
+   }
 `;
 
 const Title = styled("p")`
@@ -22,8 +32,7 @@ const Date = styled("p")`
 const Card = () => {
    return (
       <Wrapper>
-         <img
-            style={{ width: "100%" }}
+         <Thumbnail
             src="https://i.ytimg.com/vi/y4ViOEXp8LE/maxresdefault.jpg"
             alt="img"
          />
