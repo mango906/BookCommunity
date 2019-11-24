@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FaArrowLeft } from "react-icons/fa";
+import { withRouter } from "react-router-dom";
 import { IoMdArrowBack } from "react-icons/io";
 
 const WriteHeader = styled("div")`
@@ -46,16 +46,20 @@ const BackBtn = styled(IoMdArrowBack)`
    }
 `;
 
-const Header = ({ handleChange }) => {
+const Header = props => {
+   const handleWrite = () => {
+      props.history.push("/board");
+   };
+
    return (
       <WriteHeader>
          <BackBtn></BackBtn>
          <TitleInput placeholder="제목을 입력해주세요..." />
          <Actions>
-            <Button>작성하기</Button>
+            <Button onClick={handleWrite}>작성하기</Button>
          </Actions>
       </WriteHeader>
    );
 };
 
-export default Header;
+export default withRouter(Header);
