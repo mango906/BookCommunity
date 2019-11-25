@@ -20,7 +20,6 @@ class DetailBoard extends Component {
    }
 
    render() {
-      const { article } = this.props;
       const { text } = this.state;
 
       const Wrapper = styled("div")`

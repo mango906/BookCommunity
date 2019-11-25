@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 import { IoMdArrowBack } from "react-icons/io";
+import ToolTip from "../components/ToolTip";
+import useToolTip from "../hooks/useToolTip";
 
 const WriteHeader = styled("div")`
    background-color: #343a40;
@@ -47,12 +49,15 @@ const BackBtn = styled(IoMdArrowBack)`
 `;
 
 const Header = props => {
+   const [visible, setVisible] = useToolTip(false);
+
    const handleBack = () => {
       props.history.goBack();
    };
 
    const handleWrite = () => {
-      props.history.push("/");
+      setVisible();
+      // props.history.push("/");
    };
 
    return (
@@ -62,6 +67,11 @@ const Header = props => {
          <Actions>
             <Button onClick={handleWrite}>작성하기</Button>
          </Actions>
+         <ToolTip
+            visible={visible}
+            variant="danger"
+            text="오류가 발생했습니다."
+         />
       </WriteHeader>
    );
 };
