@@ -56,8 +56,7 @@ const Header = props => {
    };
 
    const handleWrite = () => {
-      setVisible();
-      // props.history.push("/");
+      props.history.push("/");
    };
 
    return (

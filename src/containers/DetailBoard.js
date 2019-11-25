@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { inject, observer } from "mobx-react";
 import Board from "../components/Board";
+import { toJS } from "mobx";
 
 @inject("article")
 @observer
@@ -21,6 +22,8 @@ class DetailBoard extends Component {
 
    render() {
       const { text } = this.state;
+
+      console.log(toJS(this.props.article.articles));
 
       const Wrapper = styled("div")`
          display: flex;

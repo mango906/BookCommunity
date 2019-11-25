@@ -7,6 +7,7 @@ const Wrapper = styled("div")`
    box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
    cursor: pointer;
    margin: 0.85rem;
+   height: 30rem;
 
    @media (max-width: 1920px) {
       width: calc(25% - 1.7rem);
@@ -48,8 +49,10 @@ const Date = styled("p")`
 `;
 
 const Card = props => {
+   const { title, history } = props;
+
    const handleRedirect = () => {
-      props.history.push("/detail");
+      history.push("/detail");
    };
 
    return (
@@ -59,7 +62,7 @@ const Card = props => {
             alt="img"
          />
          <Content>
-            <Title>대충 제목이란 내용</Title>
+            <Title>{title}</Title>
             <Date>2019년 10월 20일</Date>
          </Content>
       </Wrapper>

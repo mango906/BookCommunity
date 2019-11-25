@@ -1,4 +1,5 @@
-import { observable, action, computed } from "mobx";
+import { observable, action, computed, flow } from "mobx";
+import axios from "axios";
 
 class ArticleStore {
    @observable
@@ -8,7 +9,17 @@ class ArticleStore {
    articles = [];
 
    @observable
+   boards = [];
+
+   @observable
    page = 1;
+
+   fetchArticles = flow(function*() {
+      const response = yield axios.get("http://localhost:4000/boards");
+      if (response.status === 200) {
+         this.boards = response.data;
+      }
+   });
 
    @action
    setTitle(text) {
