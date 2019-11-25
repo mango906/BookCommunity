@@ -49,10 +49,10 @@ const Date = styled("p")`
 `;
 
 const Card = props => {
-   const { title, history } = props;
+   const { id, title, history } = props;
 
    const handleRedirect = () => {
-      history.push("/detail");
+      history.push(`/detail/${id}`);
    };
 
    return (

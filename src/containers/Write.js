@@ -6,21 +6,24 @@ import styled from "styled-components";
 
 import { inject, observer } from "mobx-react";
 
-@inject("article")
+@inject("editor", "article")
 @observer
 class Write extends Component {
+   _isMounted = false;
+
    state = {
       title: "",
       article: ""
    };
 
-   handleArticle = text => {
-      this.setState({
-         article: text
-      });
+   handleWrite = () => {
+      const { article, editor } = this.props;
+      const data = {
+         title: "제목",
+         article: editor.articles
+      };
+      article.postArticle(data);
    };
-
-   handleChange = title => {};
 
    render() {
       const WriteArea = styled("div")`
@@ -29,7 +32,7 @@ class Write extends Component {
 
       return (
          <div>
-            <Header handleChange={this.handleChange} />
+            <Header handleWrite={this.handleWrite} />
             <WriteArea>
                <Editor />
                <Board />

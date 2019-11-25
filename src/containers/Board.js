@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { inject, observer } from "mobx-react";
 
-@inject("article")
+@inject("editor")
 @observer
 class Board extends Component {
    constructor(props) {
@@ -15,7 +15,7 @@ class Board extends Component {
    }
 
    render() {
-      const { article } = this.props;
+      const { editor } = this.props;
 
       const Wrapper = styled("div")`
          flex: 1;
@@ -33,7 +33,7 @@ class Board extends Component {
                <div
                   ref={ref => (this.section = ref)}
                   dangerouslySetInnerHTML={{
-                     __html: article.getArticles && article.getArticles
+                     __html: editor.getArticles && editor.getArticles
                   }}
                />
             </Inner>

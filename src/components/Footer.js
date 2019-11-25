@@ -5,7 +5,6 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 const ArticleFooter = styled("div")`
    display: flex;
    flex: 0.5;
-   z-index: 100;
    color: red;
    justify-content: space-around;
    margin-bottom: 30px;
@@ -26,7 +25,7 @@ const FooterBtn = styled("button")`
 `;
 
 const PageText = styled("p")`
-   color: white;
+   color: ${props => props.color};
 `;
 
 const Footer = ({ handlePrev, handleNext, page, color }) => {
@@ -36,7 +35,7 @@ const Footer = ({ handlePrev, handleNext, page, color }) => {
             <FaChevronLeft />
             이전 페이지
          </FooterBtn>
-         <PageText>{page}</PageText>
+         <PageText color={color}>{page}</PageText>
          <FooterBtn color={color} onClick={handleNext}>
             다음 페이지 <FaChevronRight />
          </FooterBtn>

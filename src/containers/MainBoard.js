@@ -32,7 +32,9 @@ class MainBoard extends Component {
          }
       `;
 
-      const itemList = article.boards.map(el => <Card title={el.title}></Card>);
+      const itemList = article.boards.map(el => (
+         <Card key={el.id} id={el.id} title={el.title}></Card>
+      ));
 
       return (
          <Wrapper>

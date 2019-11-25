@@ -49,15 +49,17 @@ const BackBtn = styled(IoMdArrowBack)`
 `;
 
 const Header = props => {
+   const { handleWrite, history } = props;
+
    const [visible, setVisible] = useToolTip(false);
 
    const handleBack = () => {
-      props.history.goBack();
+      history.goBack();
    };
 
-   const handleWrite = () => {
-      props.history.push("/");
-   };
+   // const handleWrite = () => {
+   //    history.push("/");
+   // };
 
    return (
       <WriteHeader>

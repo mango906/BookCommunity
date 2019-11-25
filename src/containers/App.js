@@ -9,7 +9,7 @@ const App = () => {
       <BrowserRouter>
          <Route exact path="/" component={MainBoard} />
          <Route exact path="/post" component={Write} />
-         <Route exact path="/detail" component={DetailBoard} />
+         <Route exact path="/detail/:id" component={DetailBoard} />
       </BrowserRouter>
    );
 };

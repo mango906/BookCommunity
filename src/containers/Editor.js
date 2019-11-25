@@ -3,8 +3,9 @@ import styled from "styled-components";
 import Footer from "../components/Footer";
 import ReactQuill from "react-quill";
 import { inject, observer } from "mobx-react";
+import config from "../config";
 
-@inject("article")
+@inject("editor")
 @observer
 class Editor extends Component {
    state = {
@@ -13,16 +14,16 @@ class Editor extends Component {
    };
 
    componentDidUpdate(prevProps, prevState) {
-      const { article } = this.props;
+      const { editor } = this.props;
 
-      if (this.state.page !== article.getPage) {
+      if (this.state.page !== editor.getPage) {
          this.setState(
             {
-               page: article.getPage
+               page: editor.getPage
             },
             () => {
                this.setState({
-                  defaultValue: article.getArticles
+                  defaultValue: editor.getArticles
                });
             }
          );
@@ -30,50 +31,26 @@ class Editor extends Component {
    }
 
    handleChange = text => {
-      const { article } = this.props;
+      const { editor } = this.props;
       const data = {
-         page: article.getPage,
+         page: editor.getPage,
          text
       };
 
-      article.setArticle(data);
+      editor.setArticle(data);
    };
 
    handlePrev = () => {
-      const { article } = this.props;
-      article.setPrev();
+      const { editor } = this.props;
+      editor.setPrev();
    };
 
    handleNext = () => {
-      const { article } = this.props;
-      article.setNext();
+      const { editor } = this.props;
+      editor.setNext();
    };
 
    render() {
-      const modules = {
-         toolbar: [
-            [{ header: [1, 2, 3] }],
-            ["bold", "italic", "underline", "strike"],
-            [{ list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
-            ["link", "image"],
-            ["clean"]
-         ]
-      };
-
-      const formats = [
-         "header",
-         "bold",
-         "italic",
-         "underline",
-         "strike",
-         "blockquote",
-         "code",
-         "list",
-         "bullet",
-         "indent",
-         "link"
-      ];
-
       const Wrapper = styled("div")`
          flex: 1;
       `;
@@ -85,7 +62,7 @@ class Editor extends Component {
          overflowy: scroll;
       `;
 
-      const { article } = this.props;
+      const { editor } = this.props;
 
       return (
          <Wrapper>
@@ -98,8 +75,8 @@ class Editor extends Component {
                }}
             >
                <Input
-                  modules={modules}
-                  formats={formats}
+                  modules={config.modules}
+                  formats={config.formats}
                   theme="bubble"
                   defaultValue={this.state.defaultValue}
                   placeholder="내용을 입력해주세요"
@@ -109,7 +86,7 @@ class Editor extends Component {
                   color="#fff"
                   handlePrev={this.handlePrev}
                   handleNext={this.handleNext}
-                  page={article.getPage}
+                  page={editor.getPage}
                />
             </div>
          </Wrapper>
