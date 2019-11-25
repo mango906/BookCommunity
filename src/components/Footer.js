@@ -13,7 +13,7 @@ const ArticleFooter = styled("div")`
 
 const FooterBtn = styled("button")`
    background-color: rgba(255, 255, 255, 0);
-   color: black;
+   color: ${props => props.color};
    border: none;
    outline: none;
    cursor: pointer;
@@ -29,15 +29,15 @@ const PageText = styled("p")`
    color: white;
 `;
 
-const Footer = ({ handlePrev, handleNext, page }) => {
+const Footer = ({ handlePrev, handleNext, page, color }) => {
    return (
       <ArticleFooter>
-         <FooterBtn onClick={handlePrev}>
+         <FooterBtn color={color} onClick={handlePrev}>
             <FaChevronLeft />
             이전 페이지
          </FooterBtn>
          <PageText>{page}</PageText>
-         <FooterBtn onClick={handleNext}>
+         <FooterBtn color={color} onClick={handleNext}>
             다음 페이지 <FaChevronRight />
          </FooterBtn>
       </ArticleFooter>

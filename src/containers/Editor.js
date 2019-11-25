@@ -106,6 +106,7 @@ class Editor extends Component {
                   onChange={this.handleChange}
                />
                <Footer
+                  color="#fff"
                   handlePrev={this.handlePrev}
                   handleNext={this.handleNext}
                   page={article.getPage}

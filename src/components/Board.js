@@ -33,7 +33,7 @@ const Board = props => {
                __html: article
             }}
          />
-         <Footer></Footer>
+         <Footer color="#000" />
       </Wrapper>
    );
 };
