@@ -3,10 +3,26 @@ import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 
 const Wrapper = styled("div")`
-   width: 250px;
    background-color: #fff;
    box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
    cursor: pointer;
+   margin: 0.85rem;
+
+   @media (max-width: 1920px) {
+      width: calc(25% - 1.7rem);
+   }
+
+   @media (max-width: 1600px) {
+      width: calc(33.333% - 1.7rem);
+   }
+
+   @media (max-width: 1024px) {
+      width: calc(50% - 1.7rem);
+   }
+
+   @media (max-width: 768px) {
+      width: 100%;
+   }
 `;
 
 const Content = styled("div")`
@@ -27,6 +43,7 @@ const Title = styled("p")`
 `;
 
 const Date = styled("p")`
+   font-size: 0.85rem;
    color: #cccccc;
 `;
 

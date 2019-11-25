@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { inject, observer } from "mobx-react";
 import Board from "../components/Board";
-import Footer from "../components/Footer";
 
 @inject("article")
 @observer
