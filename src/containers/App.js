@@ -7,8 +7,8 @@ import DetailBoard from "./DetailBoard";
 const App = () => {
    return (
       <BrowserRouter>
-         <Route exact path="/" component={Write} />
-         <Route exact path="/board" component={MainBoard} />
+         <Route exact path="/" component={MainBoard} />
+         <Route exact path="/post" component={Write} />
          <Route exact path="/detail" component={DetailBoard} />
       </BrowserRouter>
    );

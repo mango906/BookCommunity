@@ -47,13 +47,17 @@ const BackBtn = styled(IoMdArrowBack)`
 `;
 
 const Header = props => {
+   const handleBack = () => {
+      props.history.goBack();
+   };
+
    const handleWrite = () => {
-      props.history.push("/board");
+      props.history.push("/");
    };
 
    return (
       <WriteHeader>
-         <BackBtn></BackBtn>
+         <BackBtn onClick={handleBack} />
          <TitleInput placeholder="제목을 입력해주세요..." />
          <Actions>
             <Button onClick={handleWrite}>작성하기</Button>

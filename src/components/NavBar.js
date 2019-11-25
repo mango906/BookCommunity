@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { withRouter } from "react-router-dom";
 import { FaPen } from "react-icons/fa";
 
 const Wrapper = styled("div")`
@@ -42,19 +43,15 @@ const Item = styled("li")`
    }
 `;
 
-const NavBar = () => {
+const NavBar = props => {
+   const handleRedirect = () => {
+      props.history.push("/post");
+   };
+
    return (
       <Wrapper>
          <ItemList>
-            <Item>
-               <FaPen />
-               <p style={{ paddingLeft: "1rem" }}>새 글 작성</p>
-            </Item>
-            <Item>
-               <FaPen />
-               <p style={{ paddingLeft: "1rem" }}>새 글 작성</p>
-            </Item>
-            <Item>
+            <Item onClick={handleRedirect}>
                <FaPen />
                <p style={{ paddingLeft: "1rem" }}>새 글 작성</p>
             </Item>
@@ -63,4 +60,4 @@ const NavBar = () => {
    );
 };
 
-export default NavBar;
+export default withRouter(NavBar);
