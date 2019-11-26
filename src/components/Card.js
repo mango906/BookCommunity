@@ -50,10 +50,10 @@ const Date = styled("p")`
 `;
 
 const Card = props => {
-   const { id, title, history } = props;
+   const { data, history } = props;
 
    const handleRedirect = () => {
-      history.push(`/detail/${id}`);
+      history.push(`/detail/${data.id}`);
    };
 
    return (
@@ -63,8 +63,8 @@ const Card = props => {
             alt="img"
          />
          <Content>
-            <Title>{title}</Title>
-            <Date>2019년 10월 20일</Date>
+            <Title>{data.title}</Title>
+            <Date>{data.date}</Date>
          </Content>
       </Wrapper>
    );

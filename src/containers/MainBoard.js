@@ -34,7 +34,7 @@ class MainBoard extends Component {
       `;
 
       const itemList = article.boards.map(el => (
-         <Card key={el.id} id={el.id} title={el.title}></Card>
+         <Card key={el.id} data={el}></Card>
       ));
 
       return (
