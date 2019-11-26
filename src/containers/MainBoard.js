@@ -25,10 +25,11 @@ class MainBoard extends Component {
          flex-wrap: wrap;
          overflow-y: scroll;
          margin-left: 15rem;
+         padding: 1rem;
 
          @media (max-width: 768px) {
             margin: 0;
-            margin-top: 5rem;
+            margin-top: 10rem;
          }
       `;
 

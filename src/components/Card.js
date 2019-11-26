@@ -40,7 +40,8 @@ const Thumbnail = styled("img")`
 `;
 
 const Title = styled("p")`
-   font-weight: 800;
+   font-weight: 500;
+   font-size: 1.1rem;
 `;
 
 const Date = styled("p")`

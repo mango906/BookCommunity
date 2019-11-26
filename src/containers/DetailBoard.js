@@ -43,6 +43,7 @@ class DetailBoard extends Component {
          flex-direction: column;
          height: 100%;
          align-items: center;
+         background-color: #f1f3f5;
       `;
 
       const Inner = styled("div")`
@@ -50,6 +51,7 @@ class DetailBoard extends Component {
          flex-direction: column;
          width: 50%;
          height: 100%;
+         background-color: #fff;
 
          @media (max-width: 768px) {
             width: 100%;

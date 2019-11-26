@@ -13,7 +13,7 @@ const Wrapper = styled("div")`
 
    @media (max-width: 768px) {
       width: 100%;
-      height: 5rem;
+      height: auto;
    }
 `;
 
@@ -23,9 +23,19 @@ const ItemList = styled("ul")`
    @media (max-width: 768px) {
       display: flex;
       height: 100%;
-      align-items: center;
       justify-content: space-around;
       width: auto;
+   }
+`;
+
+const Logo = styled("div")`
+   font-weight: 500;
+   padding: 1.5rem;
+   cursor: pointer;
+   font-size: 1.2rem;
+
+   @media (max-width: 768px) {
+      text-align: center;
    }
 `;
 
@@ -41,6 +51,25 @@ const Item = styled("li")`
    &:hover {
       background-color: #f1f3f5;
    }
+
+   @media (max-width: 768px) {
+      padding: 0.7rem 0;
+      justify-content: center;
+      background-color: #fff;
+
+      &:hover {
+         background-color: #fff;
+      }
+   }
+`;
+
+const Icon = styled("span")`
+   display: flex;
+   margin-right: 1rem;
+
+   @media (max-width: 768px) {
+      display: none;
+   }
 `;
 
 const NavBar = props => {
@@ -50,10 +79,13 @@ const NavBar = props => {
 
    return (
       <Wrapper>
+         <Logo>Community</Logo>
          <ItemList>
             <Item onClick={handleRedirect}>
-               <FaPen />
-               <p style={{ paddingLeft: "1rem" }}>새 글 작성</p>
+               <Icon>
+                  <FaPen />
+               </Icon>
+               <p>새 글 작성</p>
             </Item>
          </ItemList>
       </Wrapper>

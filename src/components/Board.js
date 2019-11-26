@@ -14,7 +14,7 @@ const Wrapper = styled("div")`
 `;
 
 const Article = styled("div")`
-   padding: 2rem 0px;
+   padding: 2rem;
    flex: 9.5;
    overflow-y: scroll;
 `;
