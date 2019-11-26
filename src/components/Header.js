@@ -49,7 +49,7 @@ const BackBtn = styled(IoMdArrowBack)`
 `;
 
 const Header = props => {
-   const { handleWrite, history } = props;
+   const { handleWrite, handleTitle, history } = props;
 
    const [visible, setVisible] = useToolTip(false);
 
@@ -57,14 +57,13 @@ const Header = props => {
       history.goBack();
    };
 
-   // const handleWrite = () => {
-   //    history.push("/");
-   // };
-
    return (
       <WriteHeader>
          <BackBtn onClick={handleBack} />
-         <TitleInput placeholder="제목을 입력해주세요..." />
+         <TitleInput
+            onChange={e => handleTitle(e.target.value)}
+            placeholder="제목을 입력해주세요..."
+         />
          <Actions>
             <Button onClick={handleWrite}>작성하기</Button>
          </Actions>

@@ -1,20 +1,11 @@
-import { observable, action, computed, flow } from "mobx";
-import axios from "axios";
+import { observable, action, computed } from "mobx";
 
 class EditorStore {
-   @observable
-   title = "";
-
    @observable
    articles = [];
 
    @observable
    page = 1;
-
-   @action
-   setTitle(text) {
-      this.title = text;
-   }
 
    @action
    setArticle(data) {

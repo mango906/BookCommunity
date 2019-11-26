@@ -1,4 +1,4 @@
-import { observable, action, computed, flow } from "mobx";
+import { observable, flow } from "mobx";
 import axios from "axios";
 
 class ArticleStore {
@@ -21,6 +21,7 @@ class ArticleStore {
 
    postArticle = flow(function*(data) {
       const response = yield axios.post("http://localhost:4000/post", data);
+      return response;
    });
 }
 
